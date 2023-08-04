@@ -1,5 +1,5 @@
 {% set name = "analphipy" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/analphipy-{{ version }}.tar.gz
-  sha256: 24899a25d1256616ce8a3c6868817f0cea8bd1ef827f3fe61ce4a7a98f1dc4e1
+  sha256: 8e11391cf06d14c492cc2725c15a01e3b825623f19af611a26c66f58a968b3cd
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -26,8 +26,8 @@ requirements:
     - typing-extensions
     - numpy
     - scipy
-    - custom-inherit
-    - module-utilities >=0.1
+    - docstring-inheritance
+    - module-utilities >=0.6
 
 test:
   imports:
