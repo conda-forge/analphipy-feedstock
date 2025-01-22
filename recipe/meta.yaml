@@ -1,5 +1,6 @@
 {% set name = "analphipy" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
+{% set python_min = "3.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,27 +8,28 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/analphipy-{{ version }}.tar.gz
-  sha256: 8e11391cf06d14c492cc2725c15a01e3b825623f19af611a26c66f58a968b3cd
+  sha256: e6d998690fba51a11211d2e80aad799449d08eed9dcceb0abee2908c2594c39d
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=61.2
-    - setuptools-scm >=7.0
+    - hatch-fancy-pypi-readme
+    - hatch-vcs
+    - hatchling
     - pip
   run:
     - python >={{ python_min }}
     - attrs
-    - typing-extensions
-    - numpy
-    - scipy
     - docstring-inheritance
     - module-utilities >=0.6
+    - numpy
+    - scipy
+    - typing_extensions
 
 test:
   imports:
