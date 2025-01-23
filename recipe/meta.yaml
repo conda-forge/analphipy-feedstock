@@ -1,5 +1,5 @@
 {% set name = "analphipy" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 {% set python_min = "3.8" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/analphipy-{{ version }}.tar.gz
-  sha256: e6d998690fba51a11211d2e80aad799449d08eed9dcceb0abee2908c2594c39d
+  sha256: 4d4f1d0b0bb8b7861d714999450cbcc2c798e1a52157e6900beee13571bc6e9e
 
 build:
   noarch: python
@@ -26,7 +26,7 @@ requirements:
     - python >={{ python_min }}
     - attrs
     - docstring-inheritance
-    - module-utilities >=0.6
+    - module-utilities >=0.10.1
     - numpy
     - scipy
     - typing_extensions
